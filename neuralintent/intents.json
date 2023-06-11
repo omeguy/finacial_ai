@@ -1,0 +1,34 @@
+{
+    "intents": [
+        {
+            "tag": "greetings",
+            "patterns": ["Hello", "Hi", "Greetings", "What's up", "How's it going", "Hi there", "Hey", "Good day", "Howdy", "Hey there", "Hello there", "Hi!", "Hello!", "Hey!"],
+            "responses": ["Hello!", "Hi there!", "Greetings!", "Hello, how can I assist you today?", "Hello, how can I help you?", "Hey there!", "Hi! How can I assist you today?", "Hi! How can I help you?"]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": ["Bye", "See you later", "Goodbye", "I am Leaving", "Have a Good day", "It was nice talking to you", "See ya", "Goodbye!"],
+            "responses": ["Goodbye, have a great day!", "See you later!", "Have a good day!", "Goodbye! Come back again soon.", "See ya! Don't hesitate to return if you need anything else.", "Bye! Have a wonderful day!", "It was nice talking to you too! Goodbye.", "Goodbye! Feel free to return if you have more questions."]
+        },
+        {
+            "tag": "account_balance",
+            "patterns": ["What is my balance?", "Can you tell me my balance?", "How much money do I have?", "What's my current balance?", "Could you check my balance for me?"],
+            "responses": ["Your account balance is $5000.", "Currently, you have $5000 in your account.", "Your balance stands at $5000.", "You have a total of $5000 in your account.", "The current balance in your account is $5000."]
+        },
+        {
+            "tag": "stock_updates",
+            "patterns": ["What's the latest on the stock market?", "Give me a stock market update.", "How are my stocks doing?", "What's happening in the stock market?", "I want to check on my stocks."],
+            "responses": ["The stock market is bullish today.", "Your stocks have appreciated by 5% today.", "The stocks you invested in are doing well.", "There's been a 5% increase in your stocks.", "Your stocks are currently performing above expectations."]
+        },
+        {
+            "tag": "financial_advice",
+            "patterns": ["I need some financial advice.", "Can you give me some financial advice?", "What should I do with my money?", "I need help with my finances.", "Could you advise me on my finances?"],
+            "responses": ["Consider diversifying your portfolio.", "Investing in mutual funds could be a good idea.", "You should consider saving a part of your income.", "Have you considered investing in bonds?", "How about exploring real estate investment opportunities?"]
+        },
+        {
+            "tag": "transaction_history",
+            "patterns": ["I want to check my transaction history.", "Can you show me my transactions?", "What are my recent transactions?", "Can I see my transaction history?", "Show me my recent transactions."],
+            "responses": ["You recently paid $500 to XYZ.", "Your last transaction was a payment of $500 to XYZ.", "Recently, you transferred $500 to XYZ.", "You have made a payment of $500 to XYZ.", "Your transaction history shows a recent payment of $500 to XYZ."]
+        }
+    ]
+}
