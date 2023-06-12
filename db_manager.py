@@ -1,7 +1,6 @@
 import sqlite3
 from sqlite3 import Error
 
-
 class DatabaseManager:
     def __init__(self, db_name=None):
         self.conn = None
@@ -16,27 +15,25 @@ class DatabaseManager:
         except Error as e:
             print(e)
 
-    def create_table(self):
-        self.execute_sql('''
-            CREATE TABLE IF NOT EXISTS news(
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                title TEXT NOT NULL,
-                link TEXT NOT NULL,
-                posted_time TEXT,
-                UNIQUE(title, link)
+    def create_table(self, table_name, schema):
+        self.execute_sql(f'''
+            CREATE TABLE IF NOT EXISTS {table_name}(
+                {schema}
             )
         ''')
         self.commit()
 
-    def insert_news_item(self, title, link, posted_time):
-        self.execute_sql('''
-            INSERT OR IGNORE INTO news(title, link, posted_time)
-            VALUES(?, ?, ?)
-        ''', (title, link, posted_time))
+    def insert_item(self, table_name, columns, values):
+        columns_str = ', '.join(columns)
+        placeholders = ', '.join('?' for _ in values)
+        self.execute_sql(f'''
+            INSERT OR IGNORE INTO {table_name}({columns_str})
+            VALUES({placeholders})
+        ''', values)
         self.commit()
 
-    def get_news_items(self):
-        self.execute_sql('SELECT * FROM news')
+    def get_items(self, table_name):
+        self.execute_sql(f'SELECT * FROM {table_name}')
         return self.fetchall()
 
     def execute_sql(self, sql, params=None):
