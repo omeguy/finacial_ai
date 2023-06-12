@@ -33,7 +33,7 @@ class Scraper:
         return html
 
 
-    def extract_table_data(self, table):
+    def extract_economicEvents_table(self, table):
         data = []
         
         rows = table.find_all('tr', class_='js-event-item')
@@ -66,21 +66,17 @@ class Scraper:
         return data
     
 
-    def parse_page(self, html):
+    def parse_economicEvents_page(self, html):
         soup = BeautifulSoup(html, 'lxml')
         table = soup.find(id='economicCalendarData')
-        table_data = self.extract_table_data(table)
+        table_data = self.extract_economicEvents_table(table)
         return table_data
 
 
     def scrape(self):
         html = self.fetch_page()
-        table_data = self.parse_page(html)
-
-        # Write data to JSON
-        with open('table_data.json', 'w') as jsonfile:
-            json.dump(table_data, jsonfile, indent=4)
-
-        print(table_data)
+        table_data = self.parse_economicEvents_page(html)
+        return table_data
+   
 
 

@@ -1,14 +1,13 @@
 from web_scraper import Scraper
-
-url = 'https://www.investing.com/economic-calendar/'
+from db_manager import DatabaseManager
+from economic_events import EconomicEvents
 
 def main():
-    # Create an instance of the WebScraper class
-    scraper = Scraper(url)
+    db_manager = DatabaseManager('financial_ai.db')
+    scraper = Scraper('https://www.investing.com/economic-calendar/')
+    economic_events = EconomicEvents(scraper, db_manager)
 
-    # Start the scraping process
-    scraper.scrape()
-
-
+    economic_events.create_table()
+    economic_events.update_events()
 if __name__ == "__main__":
     main()
