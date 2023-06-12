@@ -1,4 +1,4 @@
-from web_scraper import Scraper
+from webscraper.web_scraper import Scraper
 from db_manager import DatabaseManager
 
     
